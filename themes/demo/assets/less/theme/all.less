@@ -1,0 +1,36 @@
+//
+// Boot variables and mixins
+//
+
+@import "boot";
+
+//
+// Vendor and Fonts
+//
+
+@import "vendor";
+@import "fonts";
+
+//
+// Pages, Layouts and Controls
+//
+
+@import "../pages/all";
+@import "../layouts/all";
+@import "../controls/all";
+
+#layout-content{
+  background-image: url("../images/concrete_14.jpg");
+}
+
+#layout-content .container{
+  /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(12, 5, 33);
+  /* RGBa with 0.6 opacity */
+    background-color: rgba(12, 5, 33, 0.7);
+  width: 1000px;
+}
+
+#layout-content .head-img{
+  text-align: center;
+}

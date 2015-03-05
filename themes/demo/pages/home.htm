@@ -1,0 +1,43 @@
+title = "Керамзитобетон"
+url = "/"
+layout = "default"
+
+[blogPosts]
+postsPerPage = "10"
+noPostsMessage = "Не найдено ни одного поста. Создайте хотя бы одну страницу в админке блогов."
+==
+
+<div class="head-img"><img src="{{ 'assets/images/head.png'|theme }}" /></div>
+
+<div class="container">
+
+    {% for post in posts %}
+        <li>
+            <h3><a href="#post-{{ post.id }}">{{ post.title }}</a></h3>
+
+            {% if post.excerpt %}
+            <p class="excerpt">{{ post.excerpt }}</p>
+            {% else %}
+            <div class="content">{{ post.content_html|raw }}</div>
+            {% endif %}
+
+            {% if post.featured_images.count %}
+            <div class="featured-images text-center">
+                {% for image in post.featured_images %}
+                <p>
+                    <img
+                            data-src="{{ image.filename }}"
+                            src="{{ image.path }}"
+                            alt="{{ image.description }}"
+                            style="max-width: 100%" />
+                </p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </li>
+        {% else %}
+        <li class="no-data">{{ noPostsMessage }}</li>
+    {% endfor %}
+
+</div>
